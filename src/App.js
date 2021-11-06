@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import People from './Components/People.jsx'
+import Planets from './Components/Planets'
+import Search from './Components/Search'
 
 function App() {
+
   return (
-    <div className="App">
+    <BrowserRouter className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Star Wars API</h1>
+      <Search></Search>
       </header>
-    </div>
+      <Switch>
+        <Route path='/people/:id'>
+          <People></People>
+        </Route>
+        <Route path='/planets/:id'>
+          <Planets></Planets>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
